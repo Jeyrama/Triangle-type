@@ -28,19 +28,22 @@ Examples:
 
 // Solution
 
-function triangleType(a, b, c) {
+function triangleType(a, b, c){
   let result = triangleType.ACUTE,
       sides = [a,b,c].sort(function(a,b){return a-b});
-
+  
   a = sides[0], b = sides[1], c = sides[2];
-
-  if (a <= c - b) {
+  
+  if(a <= c - b) {
     result = triangleType.INVALID;
-  } else if (c*c === a*a + b*b) {
+    
+  } else if(c*c === a*a + b*b) {
     result = triangleType.RIGHT;
-  } else if (c*c > a*a + b*b) {
+    
+  } else if(c*c > a*a + b*b) {
     result = triangleType.OBTUSE;
   }
+  
   return result;
 }
 
@@ -50,3 +53,26 @@ triangleType.RIGHT = 2;
 triangleType.OBTUSE = 3;
 
 // or
+
+/* Should return ᐃ type:
+  0 : if ᐃ cannot be made with given sides
+  1 : acute ᐃ
+  2 : right ᐃ
+  3 : obtuse ᐃ
+*/
+let NO_TRIANGLE = 0;
+let ACUTE = 1;
+let RIGHT = 2;
+let OBTUSE = 3;
+
+function triangleType(a, b, c){
+  let sides = [a,b,c].sort(function(x1,x2){return x1-x2;});
+  a = sides[0]; b = sides[1]; c = sides[2];
+  
+  if (a + b <= c) return NO_TRIANGLE;
+  let a2 = a*a, b2 = b*b, c2 = c*c;
+  
+  if (a2 + b2 == c2) return RIGHT;
+  if (a2 + b2 > c2) return ACUTE;
+  return OBTUSE;
+}
