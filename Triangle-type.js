@@ -24,3 +24,6 @@ Examples:
   (3, 4, 5) ---> return 2 (Right, angles are approx. 37°, 53° and exactly 90°)
   (7, 12, 8) ---> return 3 (Obtuse, angles are approx. 34°, 106° and 40°)
 */
+
+
+// Solution
