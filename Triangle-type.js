@@ -48,3 +48,5 @@ triangleType.INVALID = 0;
 triangleType.ACUTE = 1;
 triangleType.RIGHT = 2;
 triangleType.OBTUSE = 3;
+
+// or
